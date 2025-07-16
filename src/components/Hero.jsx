@@ -11,7 +11,7 @@ const Hero = () => {
           <div className="col-lg-5">
             <div className="intro-excerpt">
               <h1>
-                Modern Interior <span clsas="d-block">Design Studio</span>
+                Modern Shopping <span clsas="d-block">User Friendly</span>
               </h1>
               <p className="mb-4">
                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
