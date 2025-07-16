@@ -1,0 +1,11 @@
+.why-choose-section,
+.about {
+  padding: 5rem 0;
+}
+.why-choose-section .img-wrap {
+  position: relative;
+}
+
+.why-choose-section .img-wrap img {
+  border-radius: 20px;
+}

@@ -37,8 +37,7 @@ const Header = () => {
             <Link to="/shop">Shop</Link>
             <Link to="/about-us">About Us</Link>
             <Link to="/service">Service</Link>
-            <Link to="/Blog">Blog</Link>
-            <Link to="/contact-us">Contact Us</Link>
+            <Link to="/contactus">Contact Us</Link>
           </Nav>
 
           <Nav className="ms-5 mb-2 mb-md-0 custom-navbar-cta">
