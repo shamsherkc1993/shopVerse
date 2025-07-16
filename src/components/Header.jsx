@@ -41,7 +41,7 @@ const Header = () => {
           </Nav>
 
           <Nav className="ms-5 mb-2 mb-md-0 custom-navbar-cta">
-            <Link to="/cart">
+            <Link to="/login">
               <img src={headerUserImage} alt="User" />
             </Link>
             <Link to="/cart">
