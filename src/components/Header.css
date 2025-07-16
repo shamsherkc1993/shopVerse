@@ -1,0 +1,45 @@
+.custom-navbar {
+  background: #3b5d50 !important;
+  padding: 20px 100px;
+}
+
+.custom-navbar .navbar-brand a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 600;
+}
+.custom-navbar .navbar-brand a > span {
+  opacity: 0.5;
+}
+.custom-navbar .navbar-toggler {
+  border-color: transparent;
+}
+.custom-navbar .navbar-toggler:active,
+.custom-navbar .navbar-toggler:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.custom-navbar-nav a {
+  color: #fff;
+  padding: 0 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.custom-navbar-nav a:hover,
+.custom-navbar-nav a:focus {
+  background-color: #fff;
+  color: #3b5d50;
+  border-radius: 10px;
+}
+
+.custom-navbar-cta {
+  padding-left: 100px;
+}
+
+.custom-navbar-cta a {
+  padding-left: 30px;
+}
