@@ -4,6 +4,8 @@ import crosssvgImage from "../assets/cross.svg";
 
 export const ProductProvider = ({ children }) => {
   const URL = "https://dummyjson.com/products";
+  const userURL = "https://dummyjson.com/users";
+  const [user, setUser] = useState([]);
   const [products, setProducts] = useState([]);
   const [trending, setTrending] = useState([]);
   const [allproduct, setAllproducts] = useState([]);
@@ -51,6 +53,18 @@ export const ProductProvider = ({ children }) => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch(userURL)
+      .then((res) => res.json())
+      .then((data) => {
+        const allUser = data.products;
+        setUser(allUser);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, []);
+
   return (
     <ProductContext.Provider
       value={{
@@ -61,6 +75,8 @@ export const ProductProvider = ({ children }) => {
         handleAddtocart,
         cart,
         qty,
+        user,
+        setUser,
       }}
     >
       {children}
