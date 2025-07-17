@@ -20,6 +20,7 @@ function App() {
         <Route path="/about-us" element={<Aboutus />} />
         <Route path="/service" element={<Services />} />
         <Route path="/login" element={<LoginUser />} />
+        <Route path="/contactusmessage" element={<LoginUser />} />
       </Routes>
     </BrowserRouter>
   );
