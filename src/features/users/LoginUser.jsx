@@ -1,12 +1,43 @@
 import "./LoginUser.css";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../../hooks/ProductContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginUser = () => {
-  const { user, setUsers } = useContext(ProductContext);
+  //username and pass: user :"emilys", "michaelw" pass: "emilyspass", "michaelwpass"
+  const navigate = useNavigate();
+
+  const { user, setCurrentUser } = useContext(ProductContext);
   console.log(user);
+
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [invaliduser, setInvaliduser] = useState();
+
+  const handleUserName = (e) => {
+    setUsername(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const foundUser = user.find(
+      (u) => u.username === username && u.password === password
+    );
+
+    if (foundUser) {
+      console.log("✅ Login successful!", foundUser);
+      setCurrentUser(foundUser);
+      navigate("/");
+    } else {
+      setInvaliduser("❌ Invalid username or password");
+    }
+    console.log("hi", username, password);
+  };
   return (
     <>
       <div className="container h-100">
@@ -29,6 +60,8 @@ const LoginUser = () => {
                     type="text"
                     className="form-control"
                     placeholder="username"
+                    onChange={handleUserName}
+                    value={username}
                   />
                 </div>
                 <div className="input-group mb-2">
@@ -41,15 +74,17 @@ const LoginUser = () => {
                     type="password"
                     className="form-control"
                     placeholder="password"
+                    onChange={handlePassword}
+                    value={password}
                   />
                 </div>
 
                 <div className="d-flex justify-content-center mt-3 login_container">
                   <Link
-                    to="/"
-                    type="button"
+                    type="submit"
                     name="button"
                     className="btn login_btn"
+                    onClick={handleSubmit}
                   >
                     Login
                   </Link>
@@ -59,12 +94,17 @@ const LoginUser = () => {
             <div className="mt-4">
               <div className="d-flex justify-content-center links">
                 Don't have an account?
-                <Link to="/signup" className="ml-2">
+                <Link to="/signup" className="ml-2" style={{ color: "yellow" }}>
                   Sign Up
                 </Link>
               </div>
               <div className="d-flex justify-content-center links">
-                <Link to="/contactus">Forgot your password?</Link>
+                <Link to="/contactus" style={{ color: "#fff" }}>
+                  Forgot your password?
+                </Link>
+              </div>
+              <div className="d-flex justify-content-center links">
+                <p style={{ color: "red" }}>{invaliduser}</p>
               </div>
             </div>
           </div>

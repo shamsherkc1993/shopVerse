@@ -6,6 +6,7 @@ export const ProductProvider = ({ children }) => {
   const URL = "https://dummyjson.com/products";
   const userURL = "https://dummyjson.com/users";
   const [user, setUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const [products, setProducts] = useState([]);
   const [trending, setTrending] = useState([]);
   const [allproduct, setAllproducts] = useState([]);
@@ -57,7 +58,7 @@ export const ProductProvider = ({ children }) => {
     fetch(userURL)
       .then((res) => res.json())
       .then((data) => {
-        const allUser = data.products;
+        const allUser = data.users;
         setUser(allUser);
       })
       .catch((error) => {
@@ -77,6 +78,8 @@ export const ProductProvider = ({ children }) => {
         qty,
         user,
         setUser,
+        currentUser,
+        setCurrentUser,
       }}
     >
       {children}
